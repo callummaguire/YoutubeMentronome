@@ -1,13 +1,12 @@
 import React from "react";
 
 class SearchBar extends React.Component {
-  state = { inputtext: "" };
-
-  onInputChange(event) {}
+  state = { inputText: "" };
 
   onFormSubmit = event => {
     event.preventDefault();
-    this.props.onSubmit(this.state.inputtext);
+    console.log(event.target.value);
+    this.props.onSubmit(this.state.inputText);
   };
 
   render() {
@@ -18,8 +17,8 @@ class SearchBar extends React.Component {
             <label>YouTube Search</label>
             <input
               type="text"
-              value={this.state.inputtext}
-              onChange={e => this.setState({ inputtext: e.target.value })}
+              value={this.state.inputText}
+              onChange={e => this.setState({ inputText: e.target.value })}
             />
           </div>
         </form>

@@ -1,6 +1,6 @@
 import React from "react";
 import SearchBar from "./searchbar";
-import youtube from "../apis/youtube";
+import youtubeApi from "../apis/youtube";
 import VideoList from "./videolist";
 import VideoDetail from "./videodetail";
 import Metronome from "./metronome";
@@ -8,14 +8,12 @@ import Metronome from "./metronome";
 class App extends React.Component {
   state = { videos: [], selectedVideo: null };
   onSearchSubmit = async term => {
-    const response = await youtube.get("/search", {
+    const response = await youtubeApi.get("/search", {
       params: {
         q: term
       }
     });
-    //   .then(response => {
-    //     console.log(response.data.results);
-    //   });
+    console.log(process.env.REACT_APP_API_YOUTUBE_KEY);
 
     this.setState({
       videos: response.data.items,
